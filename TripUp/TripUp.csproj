@@ -1,0 +1,170 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Fonts\materialdesignicons-webfont.ttf" />
+    <None Remove="Resources\Fonts\SFProDisplay-Bold.ttf" />
+    <None Remove="Resources\Fonts\SFProDisplay-Heavy.ttf" />
+    <None Remove="Resources\Fonts\SFProDisplay-Medium.ttf" />
+    <None Remove="Resources\Fonts\SFProDisplay-Regular.ttf" />
+    <None Remove="Resources\Fonts\SFProDisplay-Thin.ttf" />
+    <None Remove="Resources\Fonts\SFProDisplay-ThinItalic.ttf" />
+    <None Remove="Resources\Fonts\SFProText-Light.ttf" />
+    <None Remove="Resources\Fonts\SFProText-LightItalic.ttf" />
+    <None Remove="Resources\Fonts\SFProText-Regular.ttf" />
+    <None Remove="Resources\Images\bg_1.jpg" />
+    <None Remove="Resources\Images\bg_2.jpg" />
+    <None Remove="Resources\Images\bg_3.jpg" />
+    <None Remove="Resources\Images\bg_4.jpg" />
+    <None Remove="Resources\Images\bg_5.jpg" />
+    <None Remove="Resources\Images\hotel-1.jpg" />
+    <None Remove="Resources\Images\hotel-2.jpg" />
+    <None Remove="Resources\Images\hotel-3.jpg" />
+    <None Remove="Resources\Images\hotel-4.jpg" />
+    <None Remove="Resources\Images\hotel-5.jpg" />
+    <None Remove="Resources\Images\hotel-6.jpg" />
+    <None Remove="Resources\Images\hotel-7.jpg" />
+    <None Remove="Resources\Images\hotel-8.jpg" />
+    <None Remove="Resources\Images\hotel-9.jpg" />
+    <None Remove="Resources\Images\image_1.jpg" />
+    <None Remove="Resources\Images\image_2.jpg" />
+    <None Remove="Resources\Images\image_3.jpg" />
+    <None Remove="Resources\Images\image_4.jpg" />
+    <None Remove="Resources\Images\image_5.jpg" />
+    <None Remove="Resources\Images\image_6.jpg" />
+    <None Remove="Resources\Images\image_7.jpg" />
+    <None Remove="Resources\Images\image_8.jpg" />
+    <None Remove="Resources\Images\person_1.jpg" />
+    <None Remove="Resources\Images\person_2.jpg" />
+    <None Remove="Resources\Images\person_3.jpg" />
+    <None Remove="Resources\Images\person_4.jpg" />
+    <None Remove="Resources\Images\promo-1.jpg" />
+    <None Remove="Resources\Images\promo-2.jpg" />
+    <None Remove="Resources\Images\promo-3.jpg" />
+    <None Remove="Resources\Images\tour-1.jpg" />
+    <None Remove="Resources\Images\tour-2.jpg" />
+    <None Remove="Resources\Images\tour-3.jpg" />
+    <None Remove="Resources\Images\tour-4.jpg" />
+    <None Remove="Resources\Images\tour-5.jpg" />
+    <None Remove="Resources\Images\tour-6.jpg" />
+    <None Remove="Resources\Images\tour-7.jpg" />
+    <None Remove="Resources\Images\tour-8.jpg" />
+    <None Remove="Resources\Images\world-map.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Fonts\materialdesignicons-webfont.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\SFProDisplay-Bold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\SFProDisplay-Heavy.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\SFProDisplay-Medium.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\SFProDisplay-Regular.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\SFProDisplay-Thin.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\SFProDisplay-ThinItalic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\SFProText-Light.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\SFProText-LightItalic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\SFProText-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="4.0.9" />
+    <PackageReference Include="Resizetizer.NT" Version="0.2.0" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
+    <PackageReference Include="Xamanimation" Version="1.3.0" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.1.0" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
+    <PackageReference Include="Xamarin.Forms.Skeleton" Version="2.0.0" />
+    <PackageReference Include="Xamarin.Plugin.SharedTransitions" Version="2.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SharedImage Include="Resources\Images\bg_1.jpg" />
+    <SharedImage Include="Resources\Images\bg_2.jpg" />
+    <SharedImage Include="Resources\Images\bg_3.jpg" />
+    <SharedImage Include="Resources\Images\bg_4.jpg" />
+    <SharedImage Include="Resources\Images\bg_5.jpg" />
+    <SharedImage Include="Resources\Images\hotel-1.jpg" />
+    <SharedImage Include="Resources\Images\hotel-2.jpg" />
+    <SharedImage Include="Resources\Images\hotel-3.jpg" />
+    <SharedImage Include="Resources\Images\hotel-4.jpg" />
+    <SharedImage Include="Resources\Images\hotel-5.jpg" />
+    <SharedImage Include="Resources\Images\hotel-6.jpg" />
+    <SharedImage Include="Resources\Images\hotel-7.jpg" />
+    <SharedImage Include="Resources\Images\hotel-8.jpg" />
+    <SharedImage Include="Resources\Images\hotel-9.jpg" />
+    <SharedImage Include="Resources\Images\image_1.jpg" />
+    <SharedImage Include="Resources\Images\image_2.jpg" />
+    <SharedImage Include="Resources\Images\image_3.jpg" />
+    <SharedImage Include="Resources\Images\image_4.jpg" />
+    <SharedImage Include="Resources\Images\image_5.jpg" />
+    <SharedImage Include="Resources\Images\image_6.jpg" />
+    <SharedImage Include="Resources\Images\image_7.jpg" />
+    <SharedImage Include="Resources\Images\image_8.jpg" />
+    <SharedImage Include="Resources\Images\person_1.jpg" />
+    <SharedImage Include="Resources\Images\person_2.jpg" />
+    <SharedImage Include="Resources\Images\person_3.jpg" />
+    <SharedImage Include="Resources\Images\person_4.jpg" />
+    <SharedImage Include="Resources\Images\promo-1.jpg" />
+    <SharedImage Include="Resources\Images\promo-2.jpg" />
+    <SharedImage Include="Resources\Images\promo-3.jpg" />
+    <SharedImage Include="Resources\Images\tour-1.jpg" />
+    <SharedImage Include="Resources\Images\tour-2.jpg" />
+    <SharedImage Include="Resources\Images\tour-3.jpg" />
+    <SharedImage Include="Resources\Images\tour-4.jpg" />
+    <SharedImage Include="Resources\Images\tour-5.jpg" />
+    <SharedImage Include="Resources\Images\tour-6.jpg" />
+    <SharedImage Include="Resources\Images\tour-7.jpg" />
+    <SharedImage Include="Resources\Images\tour-8.jpg" />
+    <SharedImage Include="Resources\Images\world-map.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\MainContents\Templates\PlanTemplate.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\DetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\MainContents\Home\HomeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\MainContents\Home\SubViews\ActiveView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\MainContents\Home\SubViews\PastView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\MainContents\Home\SubViews\UpcomingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\MainContents\Profile\ProfileView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\MainContents\Templates\MostVisitedTemplate.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="Views\Reusables\Buttons\FabButton.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
+</Project>

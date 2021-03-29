@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:subpage="clr-namespace:TripUp.Views.MainContents.Home.SubViews"
+             BackgroundColor="Transparent"
+             x:Class="TripUp.Views.MainContents.Home.HomeView">
+    
+    <!--#region Resources-->
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style TargetType="xct:TabViewItem">
+                <Setter Property="TextColor" Value="{StaticResource SecondaryDisabledColor}"/>
+                <Setter Property="TextColorSelected" Value="{StaticResource SecondaryColor}"/>
+                <Setter Property="FontFamily" Value="DisplayRegular"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <!--#endregion-->
+    
+    <!--#region Contents-->
+    <ContentView.Content>
+        <Grid BackgroundColor="Transparent">
+            <xct:TabView TabStripPlacement="Top"
+                         TabStripHeight="35"
+                         IsSwipeEnabled="False"
+                         TabIndicatorColor="{StaticResource SecondaryColor}"
+                         TabContentBackgroundColor="Transparent">
+
+                <xct:TabViewItem Text="Active">
+                    <subpage:ActiveView/>
+                </xct:TabViewItem>
+
+                <xct:TabViewItem Text="Upcoming">
+                    <subpage:UpcomingView/>
+                </xct:TabViewItem>
+
+                <xct:TabViewItem Text="Past">
+                    <subpage:PastView/>
+                </xct:TabViewItem>
+
+            </xct:TabView>
+        </Grid>
+  </ContentView.Content>
+    <!--#endregion-->
+    
+</ContentView>

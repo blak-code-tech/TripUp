@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:models="clr-namespace:TripUp.Models"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" 
+             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="TripUp.Views.MainContents.Templates.MostVisitedTemplate"
+             x:DataType="models:Countries">
+  <ContentView.Content>
+        <pv:PancakeView CornerRadius="20" Margin="5,0">
+            <Grid>
+                
+                <ffimageloading:CachedImage Aspect="AspectFill"
+                                            DownsampleToViewSize="True"
+                                            FadeAnimationEnabled="True"
+                                            FadeAnimationForCachedImages="True"
+                                            BitmapOptimizations="True"
+                                            Source="{Binding Uri}"/>
+                
+                <BoxView BackgroundColor="{StaticResource OverlayDarkColor}"/>
+
+                <StackLayout Padding="15,10">
+                    <Label Text="{Binding Date}" 
+                           TextColor="{StaticResource SecondaryDisabledColor}"
+                           FontFamily="DisplayRegular"
+                           VerticalOptions="StartAndExpand"/>
+
+                    <Label Text="{Binding Country}"
+                           TextColor="{StaticResource BackgroundLightColor}"
+                           FontFamily="DisplayRegular"
+                           FontSize="Medium"
+                           VerticalOptions="End"/>
+                </StackLayout>
+            </Grid>
+            
+        </pv:PancakeView>
+        
+  </ContentView.Content>
+</ContentView>

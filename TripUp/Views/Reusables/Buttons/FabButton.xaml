@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="TripUp.Views.Reusables.Buttons.FabButton">
+
+    <Frame Padding="10"
+               CornerRadius="30"
+               HasShadow="True"
+               BorderColor="{Binding FabBorderColor}"
+               xct:TouchEffect.NativeAnimation="True"
+               xct:TouchEffect.Command="{Binding Command}"
+               xct:TouchEffect.CommandParameter="{Binding CommandParameter}"
+               BackgroundColor="{Binding FabBackgroundColor}">
+
+        <Image Aspect="AspectFit">
+            <Image.Source>
+                <FontImageSource Color="{Binding GlyphColor}"
+                                 FontFamily="{Binding GlyphFontFamily}"
+                                 Size="{Binding GlyphSize}"
+                                 Glyph="{Binding Glyph}"/>
+            </Image.Source>
+        </Image>
+        
+    </Frame>
+</ContentView>
