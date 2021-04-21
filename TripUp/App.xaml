@@ -7,6 +7,7 @@
             
             <!--#region App Colors-->
             <Color x:Key="PrimaryColor">#081652</Color>
+            <Color x:Key="PrimaryColorLight">#99081652</Color>
             <Color x:Key="SecondaryColor">#71A7FF</Color>
             <Color x:Key="SecondaryDisabledColor">#C7C9D5</Color>
             <Color x:Key="PrimaryButtonColor">#FFA784</Color>
@@ -15,6 +16,7 @@
             <Color x:Key="BackgroundLightColor">#FDFDFF</Color>
             <Color x:Key="BackgroundVeryLightColor">#99FDFDFF</Color>
             <Color x:Key="OverlayDarkColor">#60000000</Color>
+            <Color x:Key="PlanLineDarkColor">#20000000</Color>
             <!--#endregion -->
             
         </ResourceDictionary>

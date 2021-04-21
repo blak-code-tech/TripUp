@@ -1,12 +1,244 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:icons="clr-namespace:TripUp.Fonts"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:shared="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
+             xmlns:model="clr-namespace:TripUp.Models"
+             shared:SharedTransitionNavigationPage.BackgroundAnimation="SlideFromBottom"
+             xmlns:local="clr-namespace:TripUp.ViewModels"
+             xmlns:fab="clr-namespace:TripUp.Views.Reusables.Buttons"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             BackgroundColor="{StaticResource BackgroundLightColor}"
              x:Class="TripUp.Views.DetailPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid RowDefinitions="1.8*,2*,Auto">
+            <ffimageloading:CachedImage Aspect="AspectFill"
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand"
+                                        DownsampleToViewSize="True"
+                                        FadeAnimationEnabled="True"
+                                        FadeAnimationForCachedImages="True"
+                                        BitmapOptimizations="True"
+                                        Source="{Binding URI}"/>
+            <BoxView BackgroundColor="{StaticResource OverlayDarkColor}"
+                     />
+            
+            <StackLayout Grid.Row="0" Padding="0,0,0,40"
+                         VerticalOptions="FillAndExpand"
+                         HorizontalOptions="FillAndExpand">
+                
+                <fab:FabButton Glyph="{x:Static icons:FontIcons.ArrowLeft}"
+                           GlyphSize="80" 
+                           VerticalOptions="Start"
+                           Margin="10"
+                           WidthRequest="50"
+                           HeightRequest="50"
+                           HorizontalOptions="Start"
+                           Padding="0"
+                           Command="{Binding Source={RelativeSource AncestorType={x:Type local:DetailViewModel}}, Path=MoveToMainCommand}"
+                           GlyphColor="{StaticResource BackgroundLightColor}"
+                           GlyphFontFamily="AppIcons"
+                           FabBackgroundColor="Transparent"/>
+
+                <StackLayout Padding="25,0,0,0"
+                             VerticalOptions="CenterAndExpand"
+                             HorizontalOptions="Start">
+                    
+                    <Label Text="{Binding Date}" 
+                       TextColor="{StaticResource SecondaryDisabledColor}"
+                       FontFamily="DisplayMedium"
+                       FontSize="Medium"
+                       VerticalOptions="StartAndExpand"/>
+
+                    <Label Text="{Binding City}"
+                        TextColor="{StaticResource BackgroundLightColor}"
+                        FontFamily="DisplayBold"
+                        FontSize="50"
+                        VerticalOptions="End"/>
+                </StackLayout>
+
+                <Grid Margin="25,0,0,0"
+                      ColumnDefinitions="Auto,Auto,Auto"
+                    VerticalOptions="End"
+                    HorizontalOptions="Start">
+
+                    <fab:FabButton Glyph="{x:Static icons:FontIcons.InformationVariant}"
+                                   GlyphSize="80" 
+                                   Grid.Column="0"
+                                   WidthRequest="50"
+                                   HeightRequest="50"
+                                   GlyphColor="{StaticResource BackgroundLightColor}"
+                                   GlyphFontFamily="AppIcons"
+                                   FabBackgroundColor="{StaticResource SecondaryColor}"/>
+                    
+                    <fab:FabButton Glyph="{x:Static icons:FontIcons.BedDouble}"
+                                   Grid.Column="1"
+                                   GlyphSize="80"
+                                   WidthRequest="50"
+                                   HeightRequest="50"
+                                   GlyphColor="{StaticResource BackgroundLightColor}"
+                                   GlyphFontFamily="AppIcons"
+                                   FabBackgroundColor="{StaticResource PrimaryDateTextColor}"/>
+                    
+                    <fab:FabButton Glyph="{x:Static icons:FontIcons.Airplane}"
+                                   Grid.Column="2"
+                                   GlyphSize="80"
+                                   Rotation="45"
+                                   WidthRequest="50"
+                                   HeightRequest="50"
+                                   GlyphColor="{StaticResource BackgroundLightColor}"
+                                   GlyphFontFamily="AppIcons"
+                                   FabBackgroundColor="{StaticResource PrimaryDateTextColor}"/>
+
+                </Grid>
+                
+            </StackLayout>
+            
+            <yummy:PancakeView x:Name="detailView" Grid.Row="1" CornerRadius="30,30,30,0"
+                               Padding="20,25,20,0" Margin="0,-40,0,0" 
+                               BackgroundColor="White"
+                               VerticalOptions="FillAndExpand">
+                <ScrollView>
+                    <StackLayout>
+                        <Grid RowDefinitions="40,50">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Friends"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="StartAndExpand"
+                                   TextColor="{StaticResource SecondaryDisabledColor}"
+                                   FontFamily="DisplayHeavy"
+                                   FontSize="Medium"/>
+
+                                <fab:FabButton Glyph="{x:Static icons:FontIcons.Plus}"
+                                           GlyphSize="80"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="End"
+                                           GlyphColor="{StaticResource BackgroundLightColor}"
+                                           GlyphFontFamily="AppIcons"
+                                           FabBackgroundColor="{StaticResource PrimaryButtonColor}"/>
+                            </StackLayout>
+                            <CollectionView Grid.Row="1"
+                                        ItemsSource="{Binding FriendsList}"
+                                        ItemsUpdatingScrollMode="KeepScrollOffset"
+                                        SelectionMode="None">
+
+                                <CollectionView.ItemsLayout>
+                                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="5"/>
+                                </CollectionView.ItemsLayout>
+
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <yummy:PancakeView WidthRequest="50"
+                                                       HeightRequest="50"
+                                                       CornerRadius="30"
+                                                       x:DataType="model:Friends">
+
+                                                <ffimageloading:CachedImage Aspect="AspectFit"
+                                                                    DownsampleToViewSize="True"
+                                                                    FadeAnimationEnabled="True"
+                                                                    FadeAnimationForCachedImages="True"
+                                                                    BitmapOptimizations="True"
+                                                                    Source="{Binding Uri}"/>
+                                            </yummy:PancakeView>
+                                        </Grid>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </Grid>
+
+                        <Grid RowDefinitions="40,120">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Entertainments"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="StartAndExpand"
+                                   TextColor="{StaticResource SecondaryDisabledColor}"
+                                   FontFamily="DisplayHeavy"
+                                   FontSize="Medium"/>
+
+                                <fab:FabButton Glyph="{x:Static icons:FontIcons.Plus}"
+                                           GlyphSize="80"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="End"
+                                           GlyphColor="{StaticResource BackgroundLightColor}"
+                                           GlyphFontFamily="AppIcons"
+                                           FabBackgroundColor="{StaticResource PrimaryButtonColor}"/>
+                            </StackLayout>
+
+                            <CollectionView Grid.Row="1"
+                                        ItemsSource="{Binding EntertainmentList}"
+                                        ItemsUpdatingScrollMode="KeepScrollOffset"
+                                        SelectionMode="None">
+
+                                <CollectionView.ItemsLayout>
+                                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="10"/>
+                                </CollectionView.ItemsLayout>
+
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout>
+                                            <yummy:PancakeView CornerRadius="13" BackgroundColor="black"
+                                                               WidthRequest="120"
+                                                               HeightRequest="100"
+                                                               x:DataType="model:Entertainments">
+
+                                                <ffimageloading:CachedImage Aspect="AspectFill"
+                                                                    DownsampleToViewSize="True"
+                                                                    FadeAnimationEnabled="True"
+                                                                    FadeAnimationForCachedImages="True"
+                                                                    BitmapOptimizations="True"
+                                                                    Source="{Binding Uri}"/>
+                                            </yummy:PancakeView>
+
+                                            <Label Text="{Binding Name}"
+                                                   TextColor="{StaticResource PrimaryColor}"
+                                                   FontFamily="DisplayHeavy"
+                                                   FontSize="Body"/>
+                                        </StackLayout>
+
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </Grid>
+
+                        <Grid RowDefinitions="40,*">
+
+                            <Label Text="Budget"
+                                VerticalOptions="Center"
+                                HorizontalOptions="StartAndExpand"
+                                TextColor="{StaticResource SecondaryDisabledColor}"
+                                FontFamily="DisplayHeavy"
+                                FontSize="Medium"/>
+
+                            <StackLayout Grid.Row="1" Padding="0,5,0,0" Orientation="Horizontal">
+                                <Label Text="{Binding NumberOfDays,StringFormat='{0} days'}"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="StartAndExpand"
+                                   TextColor="{StaticResource PrimaryColor}"
+                                   FontFamily="DisplayHeavy"
+                                   FontSize="Medium"/>
+
+                                <Label Text="{Binding Cost, StringFormat='${0}'}"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="End"
+                                   TextColor="{StaticResource PrimaryColor}"
+                                   FontFamily="DisplayHeavy"
+                                   FontSize="Medium"/>
+                            </StackLayout>
+                        </Grid>
+
+                        <Button Text="Save"
+                            Margin="0,5,0,0"
+                            TextColor="{StaticResource BackgroundLightColor}"
+                            BackgroundColor="{StaticResource PrimaryButtonColor}"
+                            CornerRadius="30"/>
+                    </StackLayout>
+
+                </ScrollView>
+                
+            </yummy:PancakeView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

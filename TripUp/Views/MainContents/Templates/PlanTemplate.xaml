@@ -1,17 +1,100 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:icons="clr-namespace:TripUp.Fonts"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:local="clr-namespace:TripUp.ViewModels"
+             xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              x:Class="TripUp.Views.MainContents.Templates.PlanTemplate">
+    
   <ContentView.Content>
-        <Grid ColumnDefinitions="Auto,*,*">
+        <Grid ColumnDefinitions="Auto,1.2*,*"
+              xct:TouchEffect.Command="{Binding Source={RelativeSource AncestorType={x:Type local:MainViewModel}}, Path=MoveToDetailCommand}"
+              xct:TouchEffect.CommandParameter="{Binding .}">
 
             <StackLayout Grid.Column="0">
-                <BoxView WidthRequest="10" 
-                         HeightRequest="10" 
-                         CornerRadius="10"
-                         BackgroundColor="{StaticResource SecondaryColor}"/>
-                <BoxView/>
+                <Frame WidthRequest="10" 
+                        HeightRequest="10"
+                        Padding="0"
+                        CornerRadius="10"
+                        BackgroundColor="{StaticResource SecondaryColor}"/>
+
+                <BoxView HeightRequest="130"
+                         WidthRequest="1"
+                         Margin="5,10"
+                         BackgroundColor="{StaticResource PlanLineDarkColor}"/>
             </StackLayout>
+
+            <StackLayout Grid.Column="1" TranslationY="-6">
+                <Label Text="{Binding Date}"
+                       TextColor="{StaticResource PrimaryColorLight}"
+                        FontFamily="DisplayMedium"
+                        FontSize="Subtitle"/>
+                
+                <pv:PancakeView CornerRadius="10" 
+                                HeightRequest="90"
+                                Margin="5,10,5,0">
+                    <Grid>
+                        <ffimageloading:CachedImage Aspect="AspectFill"
+                                            DownsampleToViewSize="True"
+                                            FadeAnimationEnabled="True"
+                                            FadeAnimationForCachedImages="True"
+                                            BitmapOptimizations="True"
+                                            Source="{Binding Uri}"/>
+
+                        <BoxView BackgroundColor="{StaticResource OverlayDarkColor}"/>
+                        
+                        <Label Text="{Binding City}"
+                               TextColor="{StaticResource BackgroundLightColor}"
+                               FontFamily="DisplayMedium"
+                               FontSize="Medium"
+                               HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand"/>
+
+                    </Grid>
+
+                </pv:PancakeView>
+            </StackLayout>
+
+            <StackLayout Grid.Column="2" VerticalOptions="Center">
+                <Label Text="{Binding Lodge}"
+                           TextColor="{StaticResource PrimaryColor}"
+                           FontFamily="DisplayBold"
+                           FontSize="Body"/>
+                
+                <StackLayout Orientation="Horizontal" Spacing="2">
+                    <Image>
+                        <Image.Source>
+                            <FontImageSource FontFamily="AppIcons"
+                                             Size="Small"
+                                             Glyph="{x:Static icons:FontIcons.MapMarker}"
+                                             Color="{StaticResource SecondaryColor}"/>
+                        </Image.Source>
+                    </Image>
+                    <Label Text="{Binding Location}"
+                           TextColor="{StaticResource OverlayDarkColor}"
+                           FontFamily="DisplayRegular"
+                           FontSize="Small"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Spacing="2">
+                    <Image>
+                        <Image.Source>
+                            <FontImageSource FontFamily="AppIcons"
+                                             Size="Small"
+                                             Glyph="{x:Static icons:FontIcons.Phone}"
+                                             Color="{StaticResource SecondaryColor}"/>
+                        </Image.Source>
+                    </Image>
+                    <Label Text="{Binding Phone}"
+                           TextColor="{StaticResource OverlayDarkColor}"
+                           FontFamily="DisplayRegular"
+                           FontSize="Small"/>
+                </StackLayout>
+                
+            </StackLayout>
+            
         </Grid>
   </ContentView.Content>
 </ContentView>

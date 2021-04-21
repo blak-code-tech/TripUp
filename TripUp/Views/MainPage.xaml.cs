@@ -15,7 +15,7 @@ namespace TripUp.Views
         {
             InitializeComponent();
 
-            BindingContext = new MainViewModel();
+            this.BindingContext = new MainViewModel(this);
         }
     }
 }

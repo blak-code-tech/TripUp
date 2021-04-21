@@ -1,4 +1,5 @@
-﻿using TripUp.Views;
+﻿using Plugin.SharedTransitions;
+using TripUp.Views;
 using Xamarin.Forms;
 
 namespace TripUp
@@ -9,7 +10,7 @@ namespace TripUp
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new SharedTransitionNavigationPage(new MainPage());
         }
 
         protected override void OnStart()

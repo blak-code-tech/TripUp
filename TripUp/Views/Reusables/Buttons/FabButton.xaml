@@ -5,13 +5,13 @@
              x:Class="TripUp.Views.Reusables.Buttons.FabButton">
 
     <Frame Padding="10"
-               CornerRadius="30"
-               HasShadow="True"
-               BorderColor="{Binding FabBorderColor}"
-               xct:TouchEffect.NativeAnimation="True"
-               xct:TouchEffect.Command="{Binding Command}"
-               xct:TouchEffect.CommandParameter="{Binding CommandParameter}"
-               BackgroundColor="{Binding FabBackgroundColor}">
+            CornerRadius="30"
+            HasShadow="True"
+            BorderColor="{Binding FabBorderColor}"
+            xct:TouchEffect.NativeAnimation="True"
+            xct:TouchEffect.Command="{Binding Command}"
+            xct:TouchEffect.CommandParameter="{Binding CommandParameter}"
+            BackgroundColor="{Binding FabBackgroundColor}">
 
         <Image Aspect="AspectFit">
             <Image.Source>
