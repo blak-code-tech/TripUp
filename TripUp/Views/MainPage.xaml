@@ -6,6 +6,7 @@
              xmlns:shared="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
              xmlns:icons="clr-namespace:TripUp.Fonts"
              xmlns:local="clr-namespace:TripUp.ViewModels"
+             xmlns:xam="clr-namespace:Xamanimation;assembly=Xamanimation"
              xmlns:homepage="clr-namespace:TripUp.Views.MainContents.Home"
              xmlns:profilepage="clr-namespace:TripUp.Views.MainContents.Profile"
              xmlns:fab="clr-namespace:TripUp.Views.Reusables.Buttons"
@@ -111,7 +112,7 @@
         
         <BoxView BackgroundColor="{StaticResource BackgroundVeryLightColor}"/>
         <!--#endregion-->
-        
+         
          <!--#region Body-->
         <Grid RowDefinitions="70,*" BackgroundColor="Transparent">
             
@@ -133,6 +134,10 @@
                                x:Name="searchBtn"
                                x:FieldModifier="Public"
                                FabBackgroundColor="{StaticResource PrimaryButtonColor}"/>
+
+                <StackLayout.Behaviors>
+                    <xam:EntranceTransition Duration="300"/>
+                </StackLayout.Behaviors>
             </StackLayout>
             <!--#endregion-->
             
@@ -157,6 +162,10 @@
                         <xct:TabViewItem.Content>
                             <homepage:HomeView/>
                         </xct:TabViewItem.Content>
+
+                        <xct:TabViewItem.Behaviors>
+                            <xam:EntranceTransition Duration="500"/>
+                        </xct:TabViewItem.Behaviors>
                     </xct:TabViewItem>
 
                     <xct:TabViewItem

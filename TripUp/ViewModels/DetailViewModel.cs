@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System.Threading.Tasks;
+using System.Windows.Input;
 using TripUp.Models;
 using TripUp.Views;
 using Xamarin.CommunityToolkit.ObjectModel;
@@ -56,7 +57,7 @@ namespace TripUp.ViewModels
         /// <summary>
         /// A command to move a selected plan to view its details
         /// </summary>
-        public ICommand MoveToMainCommand { private set; get; }
+        public IAsyncCommand MoveToMainCommand { private set; get; }
 
         /// <summary>
         /// This is the FriendsList
@@ -126,7 +127,7 @@ namespace TripUp.ViewModels
         #region Constructor
         public DetailViewModel(DetailPage page, Plans plan)
         {
-            PageTitle = "Account";
+            PageTitle = "Detail";
 
             Instance = page;
 
@@ -136,7 +137,7 @@ namespace TripUp.ViewModels
             Cost = plan.Cost;
             NumberOfDays = plan.NumberOfDays;
 
-            MoveToMainCommand = new Command(MoveIt);
+            MoveToMainCommand = new AsyncCommand(MoveIt);
 
             //statusBar.SetDeviceBarColor(Color.Transparent, "one");
 
@@ -160,7 +161,7 @@ namespace TripUp.ViewModels
         /// <summary>
         /// This method navigates to the Main Page
         /// </summary>
-        private async void MoveIt()
+        private async Task MoveIt()
         {
             await Instance.Navigation.PopAsync();
         }

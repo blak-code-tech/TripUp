@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using TripUp.Models;
-using Plugin.SharedTransitions;
 using TripUp.Views;
 using Xamarin.CommunityToolkit.ObjectModel;
-using Xamarin.Forms;
-using System.Diagnostics;
-using System.Windows.Input;
 
 namespace TripUp.ViewModels
 {
@@ -19,7 +12,19 @@ namespace TripUp.ViewModels
         #endregion
 
         #region Public Members
-        public ICommand MoveToDetailCommand { private set; get; }
+        /// <summary>
+        /// Declaration of move to detail command
+        /// </summary>
+        public IAsyncCommand<Plans> MoveToDetailCommand { private set; get; }
+
+        /// <summary>
+        /// Declaration of Add command
+        /// </summary>
+        public IAsyncCommand AddCommand { private set; get; }
+
+        /// <summary>
+        /// This is an instance of the parent page
+        /// </summary>
         public MainPage Instance { get; set; }
         #endregion
 
@@ -35,7 +40,7 @@ namespace TripUp.ViewModels
             //The title of the page
             PageTitle = "My Trips";
 
-            MoveToDetailCommand = new Command<Plans>(MoveIt);
+            MoveToDetailCommand = new AsyncCommand<Plans>(MoveIt);
 
             //The list of most visited places.
             MostVisited = new ObservableRangeCollection<Countries>
@@ -64,16 +69,14 @@ namespace TripUp.ViewModels
 
         }
 
-        private async void MoveIt(Plans plan)
-        {
-            await Instance.Navigation.PushAsync(new DetailPage(plan));
-            //await Instance.searchBtn.RotateTo(30, 5000, Easing.SinInOut);
-            Debug.WriteLine("Were have executed..");
-            // NavigationPage.Push(new DetailPage());
-        }
         #endregion
 
         #region Helper Methods
+
+        private async Task MoveIt(Plans plan)
+        {
+            await Instance.Navigation.PushAsync(new DetailPage(plan));
+        }
         #endregion
 
     }
