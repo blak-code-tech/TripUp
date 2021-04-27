@@ -6,7 +6,7 @@
              NavigationPage.HasNavigationBar="False"
              xmlns:shared="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
              xmlns:model="clr-namespace:TripUp.Models"
-             shared:SharedTransitionNavigationPage.BackgroundAnimation="SlideFromBottom"
+             shared:SharedTransitionNavigationPage.BackgroundAnimation="SlideFromTop"
              xmlns:local="clr-namespace:TripUp.ViewModels"
              xmlns:fab="clr-namespace:TripUp.Views.Reusables.Buttons"
              xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"

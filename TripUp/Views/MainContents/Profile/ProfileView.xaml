@@ -1,10 +1,23 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              x:Class="TripUp.Views.MainContents.Profile.ProfileView">
   <ContentView.Content>
         <StackLayout HorizontalOptions="FillAndExpand"
                  VerticalOptions="FillAndExpand" BackgroundColor="White">
+            <forms:AnimationView
+                    x:Name="animationView"
+                    Animation="resource://Resources.page-construction.json?assembly=TripUp"
+                    AnimationSource="EmbeddedResource"
+                    AutoPlay="True"
+                    BackgroundColor="White"
+                    Command="{Binding ClickCommand}"
+                    RepeatCount="20"
+                    RepeatMode="Restart"
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand" />
+            
           <Label HorizontalOptions="CenterAndExpand"
                  VerticalOptions="CenterAndExpand"
                  FontSize="Medium"

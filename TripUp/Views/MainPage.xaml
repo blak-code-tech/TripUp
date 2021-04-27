@@ -5,13 +5,12 @@
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
              xmlns:shared="clr-namespace:Plugin.SharedTransitions;assembly=Plugin.SharedTransitions"
              xmlns:icons="clr-namespace:TripUp.Fonts"
-             xmlns:local="clr-namespace:TripUp.ViewModels"
-             xmlns:xam="clr-namespace:Xamanimation;assembly=Xamanimation"
              xmlns:homepage="clr-namespace:TripUp.Views.MainContents.Home"
              xmlns:profilepage="clr-namespace:TripUp.Views.MainContents.Profile"
              xmlns:fab="clr-namespace:TripUp.Views.Reusables.Buttons"
+             xmlns:xam="clr-namespace:Xamanimation;assembly=Xamanimation"
              NavigationPage.HasNavigationBar="False"
-             shared:SharedTransitionNavigationPage.BackgroundAnimation="SlideFromTop"
+             shared:SharedTransitionNavigationPage.BackgroundAnimation="Fade"
              BackgroundColor="{StaticResource BackgroundLightColor}"
              x:Class="TripUp.Views.MainPage"
              BindingContext="{Binding Source={RelativeSource Self}, Path=MainViewModel}">
@@ -100,7 +99,7 @@
     <!--#region Content-->
     <Grid VerticalOptions="FillAndExpand" 
           HorizontalOptions="FillAndExpand"
-          Padding="{OnPlatform iOS='10,20,10,0',Android='10,0',UWP='10,0'}">
+          Padding="10,0">
         
          <!--#region Background with overlay-->
         <ffimageloading:CachedImage Aspect="AspectFit"
@@ -136,7 +135,7 @@
                                FabBackgroundColor="{StaticResource PrimaryButtonColor}"/>
 
                 <StackLayout.Behaviors>
-                    <xam:EntranceTransition Duration="300"/>
+                    <xam:EntranceTransition Duration="100"/>
                 </StackLayout.Behaviors>
             </StackLayout>
             <!--#endregion-->
@@ -162,10 +161,6 @@
                         <xct:TabViewItem.Content>
                             <homepage:HomeView/>
                         </xct:TabViewItem.Content>
-
-                        <xct:TabViewItem.Behaviors>
-                            <xam:EntranceTransition Duration="500"/>
-                        </xct:TabViewItem.Behaviors>
                     </xct:TabViewItem>
 
                     <xct:TabViewItem

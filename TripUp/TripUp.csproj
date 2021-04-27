@@ -59,6 +59,7 @@
     <None Remove="Resources\Images\tour-7.jpg" />
     <None Remove="Resources\Images\tour-8.jpg" />
     <None Remove="Resources\Images\world-map.png" />
+    <None Remove="Resources\page-construction.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -72,6 +73,7 @@
     <EmbeddedResource Include="Resources\Fonts\SFProText-Light.ttf" />
     <EmbeddedResource Include="Resources\Fonts\SFProText-LightItalic.ttf" />
     <EmbeddedResource Include="Resources\Fonts\SFProText-Regular.ttf" />
+    <EmbeddedResource Include="Resources\page-construction.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -84,7 +86,6 @@
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
     <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
-    <PackageReference Include="Xamarin.Forms.Skeleton" Version="2.0.0" />
     <PackageReference Include="Xamarin.Plugin.SharedTransitions" Version="2.4.0" />
   </ItemGroup>
 
@@ -130,9 +131,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\DetailContents\Templates\EntertainmentTemplate.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="Views\MainContents\Templates\PlanTemplate.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
