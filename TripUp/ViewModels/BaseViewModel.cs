@@ -15,9 +15,14 @@ namespace TripUp.ViewModels
 
         #region Private Members
 
-        private ObservableRangeCollection<Countries> mostVisited;
+        private ObservableRangeCollection<Countries> activeCountries;
+        private ObservableRangeCollection<Countries> upcomingCountries;
+        private ObservableRangeCollection<Countries> pastCountries;
+
         private string pageTitle;
-        private ObservableRangeCollection<Plans> plannedVisits;
+        private ObservableRangeCollection<Trip> activeVisits;
+        private ObservableRangeCollection<Trip> upcomingVisits;
+        private ObservableRangeCollection<Trip> pastVisits;
         private bool isBusy;
 
         #endregion
@@ -39,21 +44,57 @@ namespace TripUp.ViewModels
         public double Spacing => 5;
 
         /// <summary>
-        /// This property will return a list of most visited places.
+        /// This property will return a list of countries you are visiting.
         /// </summary>
-        public ObservableRangeCollection<Countries> MostVisited
+        public ObservableRangeCollection<Countries> ActiveCountries
         {
-            get { return mostVisited; }
-            set { SetProperty(ref mostVisited, value); }
+            get { return activeCountries; }
+            set { SetProperty(ref activeCountries, value); }
+        }
+
+        /// <summary>
+        /// This property will return a list of countries you will be visiting.
+        /// </summary>
+        public ObservableRangeCollection<Countries> UpcomingCountries
+        {
+            get { return upcomingCountries; }
+            set { SetProperty(ref upcomingCountries, value); }
+        }
+
+        /// <summary>
+        /// This property will return a list of countries you have visited.
+        /// </summary>
+        public ObservableRangeCollection<Countries> PastCountries
+        {
+            get { return pastCountries; }
+            set { SetProperty(ref pastCountries, value); }
         }
         
         /// <summary>
-        /// This property will return a list of most visited places.
+        /// This property will return a list of active trips places.
         /// </summary>
-        public ObservableRangeCollection<Plans> PlannedVisits
+        public ObservableRangeCollection<Trip> ActiveVisits
         {
-            get { return plannedVisits; }
-            set { SetProperty(ref plannedVisits, value); }
+            get { return activeVisits; }
+            set { SetProperty(ref activeVisits, value); }
+        }
+
+        /// <summary>
+        /// This property will return a list of upcoming trips.
+        /// </summary>
+        public ObservableRangeCollection<Trip> UpcomingVisits
+        {
+            get { return upcomingVisits; }
+            set { SetProperty(ref upcomingVisits, value); }
+        }
+        
+        /// <summary>
+        /// This property will return a list of past trips.
+        /// </summary>
+        public ObservableRangeCollection<Trip> PastVisits
+        {
+            get { return pastVisits; }
+            set { SetProperty(ref pastVisits, value); }
         }
 
         public string PageTitle

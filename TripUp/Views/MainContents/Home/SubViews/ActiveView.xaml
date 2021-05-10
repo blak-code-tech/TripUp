@@ -1,38 +1,23 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:icons="clr-namespace:TripUp.Fonts" 
-             xmlns:models="clr-namespace:TripUp.Models"
-             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" 
-             xmlns:templates="clr-namespace:TripUp.Views.MainContents.Templates" 
+             xmlns:icons="clr-namespace:TripUp.Fonts"
              xmlns:fab="clr-namespace:TripUp.Views.Reusables.Buttons"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="TripUp.Views.MainContents.Home.SubViews.ActiveView">
-   
-    <!--#region Resources-->
-    <ContentView.Resources>
-        <ResourceDictionary>
-            <DataTemplate x:Key="MostVisitedTemplate" x:DataType="models:Countries">
-                <templates:MostVisitedTemplate/>
-            </DataTemplate>
 
-            <DataTemplate x:Key="PlanTemplate" x:DataType="models:Countries">
-                <templates:PlanTemplate/>
-            </DataTemplate>
-        </ResourceDictionary>
-    </ContentView.Resources>
-    <!--#endregion-->
-    
     <!--#region Content-->
   <ContentView.Content>
-        <Grid RowDefinitions="1*,2*">
+        <Grid RowDefinitions="0.8*,2.2*">
             <yummy:PancakeView Grid.Row="0" 
                                Padding="0,10"
                                BackgroundColor="Transparent">
 
-                <CarouselView ItemsSource="{Binding MostVisited}" 
+                <CarouselView ItemsSource="{Binding ActiveCountries}" 
                               IsBounceEnabled="True"
                               IsScrollAnimated="True"
                               PeekAreaInsets="20"
+                              Loop="False"
                               ItemsUpdatingScrollMode="KeepScrollOffset"
                               ItemTemplate="{StaticResource MostVisitedTemplate}">
                     <CarouselView.ItemsLayout>
@@ -64,7 +49,7 @@
                 
                 <!--#region Collection of plans-->
                 <CollectionView Grid.Row="1" Margin="0,6,0,0"
-                                ItemsSource="{Binding PlannedVisits}"
+                                ItemsSource="{Binding ActiveVisits}"
                                 ItemTemplate="{StaticResource PlanTemplate}">
                     <CollectionView.Footer>
                         <Grid HeightRequest="70"/>

@@ -13,11 +13,11 @@ namespace TripUp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DetailPage : ContentPage
     {
-        public DetailPage(Plans plan)
+        public DetailPage(Trip trip)
         {
             InitializeComponent();
 
-            this.BindingContext = new DetailViewModel(this, plan);
+            this.BindingContext = new DetailViewModel(this, trip);
         }
     }
 }

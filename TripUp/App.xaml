@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:templates="clr-namespace:TripUp.Views.MainContents.Templates"
+             xmlns:models="clr-namespace:TripUp.Models"
              x:Class="TripUp.App">
     <Application.Resources>
         <ResourceDictionary>
@@ -18,7 +20,14 @@
             <Color x:Key="OverlayDarkColor">#60000000</Color>
             <Color x:Key="PlanLineDarkColor">#20000000</Color>
             <!--#endregion -->
+
+            <DataTemplate x:Key="MostVisitedTemplate" x:DataType="models:Countries">
+                <templates:MostVisitedTemplate/>
+            </DataTemplate>
             
+            <DataTemplate x:Key="PlanTemplate" x:DataType="models:Countries">
+                <templates:PlanTemplate/>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

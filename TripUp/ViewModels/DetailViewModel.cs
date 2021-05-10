@@ -125,17 +125,17 @@ namespace TripUp.ViewModels
         #endregion
 
         #region Constructor
-        public DetailViewModel(DetailPage page, Plans plan)
+        public DetailViewModel(DetailPage page, Trip trip)
         {
             PageTitle = "Detail";
 
             Instance = page;
 
-            URI = plan.Uri;
-            Date = plan.Date;
-            City = plan.City;
-            Cost = plan.Cost;
-            NumberOfDays = plan.NumberOfDays;
+            URI = trip.Uri;
+            Date = trip.Date;
+            City = trip.City;
+            Cost = trip.Cost;
+            NumberOfDays = trip.NumberOfDays;
 
             MoveToMainCommand = new AsyncCommand(MoveIt);
 

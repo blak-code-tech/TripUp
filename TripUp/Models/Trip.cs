@@ -1,17 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using SQLite;
+using System;
 using Xamarin.Forms;
 
 namespace TripUp.Models
 {
-    public class Plans
+    public class Trip
     {
+        /// <summary>
+        /// This property represents the unique identification of a trip.
+        /// </summary>
+        [PrimaryKey]
+        public string Id { get; set; }
 
         /// <summary>
         /// This property represents the name of a country.
         /// </summary>
         public string City { get; set; }
+
+        /// <summary>
+        /// This property represents the name of a country.
+        /// </summary>
+        public string Country { get; set; }
 
         /// <summary>
         /// This property represents the image uri of a country.
@@ -22,7 +31,17 @@ namespace TripUp.Models
         /// This property represents the available date for visitation.
         /// </summary>
         public string Date { get; set; }
-        
+
+        /// <summary>
+        /// This property represents the start date of the trip
+        /// </summary>
+        public DateTime StartDate { get; set; }
+
+        /// <summary>
+        /// This property represents the end date of the trip
+        /// </summary>
+        public DateTime EndDate { get; set; }
+
         /// <summary>
         /// This property represents the address of the for visitation.
         /// </summary>
